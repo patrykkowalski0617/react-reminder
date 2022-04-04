@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useReducer, useContext } from 'react';
 import FormField from 'components/molecules/FormField/FormField';
 import { Button } from 'components/atoms/Button/Button';
 import { ViewWrapper } from 'components/molecules/ViewWrapper/ViewWrapper';
@@ -11,20 +11,40 @@ const initialFormState = {
   average: '',
 };
 
+const INPUT_CHANGE = 'INPUT_CHANGE',
+  CLEAR_VALUES = 'CLEAR_VALUES';
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case INPUT_CHANGE:
+      return {
+        ...state,
+        [action.field]: action.value,
+      };
+    case CLEAR_VALUES:
+      return initialFormState;
+    default:
+      return state;
+  }
+};
+
 const AddUser = () => {
-  const [formValues, setFormValues] = useState(initialFormState);
+  const [formValues, dispatch] = useReducer(reducer, initialFormState);
   const { handleAddUser } = useContext(UsersContext);
   const handleInputChange = (e) => {
-    setFormValues({
-      ...formValues,
-      [e.target.name]: e.target.value,
+    dispatch({
+      type: INPUT_CHANGE,
+      field: e.target.name,
+      value: e.target.value,
     });
   };
 
   const handleSubmitUser = (e) => {
     e.preventDefault();
-    handleAddUser({ ...formValues, [e.target.name]: e.target.value });
-    setFormValues(initialFormState);
+    handleAddUser(formValues);
+    dispatch({
+      type: CLEAR_VALUES,
+    });
   };
 
   return (
