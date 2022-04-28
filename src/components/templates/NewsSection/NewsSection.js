@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Wrapper, ArticleWrapper, TitleWrapper, Header, ContentWrapper } from 'components/templates/NewsSection/NewsSection.styles';
+import {
+  Wrapper,
+  ArticleWrapper,
+  TitleWrapper,
+  Header,
+  ContentWrapper,
+} from 'components/templates/NewsSection/NewsSection.styles';
 import { Button } from 'components/atoms/Button/Button';
 import axios from 'axios';
 
@@ -37,7 +43,6 @@ const NewsSection = () => {
         }
       )
       .then(({ data: { data } }) => {
-        console.log('data', data);
         setArticles(data.allArticles);
       })
       .catch(() => setError(`Sorry, we couldn't load articles`));
