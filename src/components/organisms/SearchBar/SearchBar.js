@@ -17,7 +17,6 @@ export const SearchBar = () => {
 
   const getMatchingStudents = debounce(async ({ inputValue }) => {
     const { students } = await findStudents(inputValue);
-    // setMatchingStudents(students.map((item) => item.name));
     setMatchingStudents(students);
   }, 500);
 
