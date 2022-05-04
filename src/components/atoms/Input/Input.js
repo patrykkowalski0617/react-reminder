@@ -10,4 +10,5 @@ export const Input = styled.input`
     outline: none;
     box-shadow: -2px 4px 10px rgba(115, 124, 142, 0.3);
   }
+  font-size: ${({ theme }) => theme.fontSize.l};
 `;
