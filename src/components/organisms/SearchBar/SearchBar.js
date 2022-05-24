@@ -20,11 +20,17 @@ export const SearchBar = () => {
     setMatchingStudents(students);
   }, 500);
 
-  const { isOpen, getMenuProps, getInputProps, getComboboxProps, highlightedIndex, getItemProps } =
-    useCombobox({
-      items: matchingStudents.map((item) => item.name),
-      onInputValueChange: getMatchingStudents,
-    });
+  const {
+    isOpen,
+    getMenuProps,
+    getInputProps,
+    getComboboxProps,
+    highlightedIndex,
+    getItemProps,
+  } = useCombobox({
+    items: matchingStudents.map((item) => item.name),
+    onInputValueChange: getMatchingStudents,
+  });
 
   return (
     <SearchBarWrapper>
