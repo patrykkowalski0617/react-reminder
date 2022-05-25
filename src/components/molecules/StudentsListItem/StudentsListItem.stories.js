@@ -5,19 +5,19 @@ export default {
   component: StudentsListItem,
 };
 
-const Temmplate = (args) => <StudentsListItem {...args} />;
+const Template = (args) => <StudentsListItem {...args} />;
 
-export const BadAverage = Temmplate.bind({});
-BadAverage.args = {
+export const BadGrades = Template.bind({});
+BadGrades.args = {
   userData: {
     name: 'Adam Romański',
-    attendance: '55%',
-    average: '2',
+    attendance: '25%',
+    average: '2.0',
   },
 };
 
-export const MediumAverage = Temmplate.bind({});
-MediumAverage.args = {
+export const MediumGrades = Template.bind({});
+MediumGrades.args = {
   userData: {
     name: 'Adam Romański',
     attendance: '55%',
@@ -25,20 +25,20 @@ MediumAverage.args = {
   },
 };
 
-export const GoodAverage = Temmplate.bind({});
-GoodAverage.args = {
+export const GoodGrades = Template.bind({});
+GoodGrades.args = {
   userData: {
     name: 'Adam Romański',
-    attendance: '55%',
-    average: '4.1',
+    attendance: '99%',
+    average: '5.0',
   },
 };
 
-export const NoAverage = Temmplate.bind({});
+export const NoAverage = Template.bind({});
 NoAverage.args = {
   userData: {
     name: 'Adam Romański',
-    attendance: '55%',
+    attendance: '99%',
     average: null,
   },
 };
