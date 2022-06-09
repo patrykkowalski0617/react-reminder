@@ -5,11 +5,11 @@ export default {
   component: Button,
 };
 
-const Temmplate = (args) => <Button {...args}>Click</Button>;
+const Template = (args) => <Button {...args}>Read more</Button>;
 
-export const Default = Temmplate.bind({});
+export const Default = Template.bind({});
 
-export const Big = Temmplate.bind({});
+export const Big = Template.bind({});
 Big.args = {
   isBig: true,
 };
